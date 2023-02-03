@@ -1,0 +1,13 @@
+//Pangon La-or-on
+//6409700074
+
+public class StringCoderTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		StringCoder str=new StringCoder("0000");
+		String blowup=str.blowUp();
+		System.out.println(blowup);
+		System.out.println(str.maxRun(blowup));
+	}
+}

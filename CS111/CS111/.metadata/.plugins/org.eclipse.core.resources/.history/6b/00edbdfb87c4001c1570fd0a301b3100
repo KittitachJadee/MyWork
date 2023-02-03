@@ -1,0 +1,90 @@
+package learnGUI;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
+import javax.swing.JTextField;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Color;
+import java.awt.Toolkit;
+import java.awt.Frame;
+import javax.swing.JList;
+
+public class MyWindowsForm {
+
+	private JFrame frmApp;
+	private JTextField textField;
+	private JTextField textField_1;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					MyWindowsForm window = new MyWindowsForm();
+					window.frmApp.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public MyWindowsForm() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frmApp = new JFrame();
+		frmApp.setIconImage(Toolkit.getDefaultToolkit().getImage("D:\\Java_CS111\\Project\\img\\heart.png"));
+		frmApp.setBackground(Color.WHITE);
+		frmApp.setTitle("Hello App");
+		frmApp.setBounds(100, 100, 450, 300);
+		frmApp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmApp.getContentPane().setLayout(null);
+		
+		textField = new JTextField();
+		textField.setBounds(59, 53, 86, 20);
+		frmApp.getContentPane().add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(195, 53, 86, 20);
+		frmApp.getContentPane().add(textField_1);
+		textField_1.setColumns(10);
+		
+		JLabel lblNewLabel = new JLabel("+");
+		lblNewLabel.setBounds(167, 56, 18, 14);
+		frmApp.getContentPane().add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("Result");
+		lblNewLabel_1.setBounds(65, 96, 46, 14);
+		frmApp.getContentPane().add(lblNewLabel_1);
+		frmApp.setLocationRelativeTo(null);
+		
+		JButton btnNewButton = new JButton("Sum");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				double value1 = Double.valueOf(textField.getText());
+				double value2 = Double.valueOf(textField_1.getText());
+				lblNewLabel_1.setText(String.valueOf(value1 + value2));
+			}
+		});
+		btnNewButton.setBounds(302, 52, 89, 23);
+		frmApp.getContentPane().add(btnNewButton);
+	}
+}

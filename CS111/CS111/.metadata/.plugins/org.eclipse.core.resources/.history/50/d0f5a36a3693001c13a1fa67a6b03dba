@@ -1,0 +1,40 @@
+//Pangon La-or-on
+//6409700074
+public class StringCoder {
+	private String code;
+	
+	public StringCoder(String code) {
+		this.code=code;
+	}
+	
+	public String blowUp() {
+		String result="";
+		int amount;
+		for(int i=0; i<code.length(); i++) {
+			if(Character.isDigit(code.charAt(i))==false||i==code.length()-1) {
+				result+=code.charAt(i);
+			}
+			else {
+				amount=Character.getNumericValue(code.charAt(i));
+				for(int j=1; j<=amount; result+=code.charAt(i+1) ,j++);
+			}
+		}
+		return result;
+	}
+	
+	public int maxRun(String str) {
+		int maxAmount=0, amount=1;
+		for(int i=1; i<=str.length(); i++) {
+			if(str.charAt(i-1)==str.charAt(i)) {
+				amount++;
+				if(amount>maxAmount)
+					maxAmount=amount;
+			}
+		}
+		return maxAmount;
+	}
+	
+	public String getCode() {
+		return code;
+	}
+}
